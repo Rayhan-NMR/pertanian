@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statistika Pangan Indonesia 2019–2025</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #22c55e;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      color: white;
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 10px;
+      opacity: 0.95;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      padding: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: 0.25s;
+    }
+
+    nav a:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    section {
+      padding: 48px 8vw;
+    }
+
+    section h2 {
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .desc {
+      max-width: 800px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Statistika Harga Pangan Indonesia</h1>
+  <p>Analisis harga komoditas pangan utama Indonesia (2019–2025)</p>
+</header>
+
+<nav>
+  <a href="#ringkasan">Ringkasan</a>
+  <a href="#beras">Beras</a>
+  <a href="#jagung">Jagung</a>
+  <a href="#cabai">Cabai</a>
+</nav>
+
+<section id="ringkasan">
+  <h2>Ringkasan Pangan Nasional</h2>
+  <p class="desc">
+    Pangan merupakan sektor strategis dalam ketahanan nasional. Website ini menyajikan
+    statistik harga pangan utama di Indonesia dari tahun 2019 hingga 2025 untuk membantu
+    analisis tren inflasi, stabilitas harga, dan kebijakan pangan.
+  </p>
+</section>
+
+<section id="beras">
+  <h2>Harga Beras</h2>
+  <p class="desc">Beras adalah pangan pokok mayoritas masyarakat Indonesia.</p>
+  <div class="card">
+    <canvas id="berasChart"></canvas>
+  </div>
+</section>
+
+<section id="jagung">
+  <h2>Harga Jagung</h2>
+  <p class="desc">Jagung berperan penting sebagai bahan pangan dan pakan ternak.</p>
+  <div class="card">
+    <canvas id="jagungChart"></canvas>
+  </div>
+</section>
+
+<section id="cabai">
+  <h2>Harga Cabai</h2>
+  <p class="desc">Cabai merupakan komoditas hortikultura dengan fluktuasi harga tinggi.</p>
+  <div class="card">
+    <canvas id="cabaiChart"></canvas>
+  </div>
+</section>
+
+<footer>
+  © 2025 Rayhan • Website Statistika Pangan Indonesia
+</footer>
+
+<script>
+  const tahun = ['2019','2020','2021','2022','2023','2024','2025'];
+
+  const options = {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { y: { ticks: { callback: v => 'Rp ' + v.toLocaleString() } } }
+  };
+
+  new Chart(document.getElementById('berasChart'), {
+    type: 'line',
+    data: { labels: tahun, datasets: [{ data: [11200,11400,11800,12000,12500,13000,13200], tension: 0.4 }] },
+    options
+  });
+
+  new Chart(document.getElementById('jagungChart'), {
+    type: 'line',
+    data: { labels: tahun, datasets: [{ data: [3800,3900,4100,4200,4500,4700,4800], tension: 0.4 }] },
+    options
+  });
+
+  new Chart(document.getElementById('cabaiChart'), {
+    type: 'line',
+    data: { labels: tahun, datasets: [{ data: [28000,30000,35000,40000,42000,45000,47000], tension: 0.4 }] },
+    options
+  });
+</script>
+
+</body>
+</html>
