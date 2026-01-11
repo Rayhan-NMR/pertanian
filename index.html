@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Analisis Tren dan Pola Pangan Utama Indonesia (2019-2025)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a2a43, #0f4c75);
+            color: #ffffff;
+        }
+
+        header {
+            padding: 30px;
+            text-align: center;
+            background: #082032;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #b8dfff;
+            font-size: 15px;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #7dd3fc;
+        }
+
+        .card p, li {
+            color: #e0f2ff;
+            line-height: 1.7;
+        }
+
+        /* TAMBAHAN: REFLEKSI PROYEK RATA KIRI-KANAN */
+        .refleksi p {
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        canvas {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #082032;
+            color: #9ecbff;
+            font-size: 14px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 193, 7, 0.15);
+            border-left: 6px solid #facc15;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .highlight-box h3 {
+            margin-top: 0;
+            color: #fde047;
+        }
+
+        .insight-box {
+            background: rgba(125, 211, 252, 0.15);
+            border-left: 6px solid #7dd3fc;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .insight-box h3 {
+            margin-top: 0;
+            color: #7dd3fc;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Analisis Tren dan Pola Pangan Utama Indonesia (2019–2025)</h1>
+    <p>Berbasis Data Harga Sayuran dan Visualisasi Grafik</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Grafik Harga Sayuran (Rp/kg)</h2>
+        <canvas id="chartSayur" height="120"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>Highlight Tahun Anomali</h2>
+        <div class="highlight-box">
+            <h3>Tahun 2021–2022</h3>
+            <p>
+                Lonjakan harga dipengaruhi pandemi COVID-19 dan cuaca ekstrem
+                yang mengganggu produksi serta distribusi pangan nasional.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Analisis Kenaikan dan Penurunan Harga</h2>
+        <ul>
+            <li>2019–2020: Harga relatif stabil.</li>
+            <li>2020–2021: Kenaikan akibat pandemi.</li>
+            <li>2022: Lonjakan karena cuaca ekstrem.</li>
+            <li>2023–2025: Harga mulai stabil.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Perbandingan Antar Sayuran</h2>
+        <ul>
+            <li>Cabai Merah: Volatilitas tinggi.</li>
+            <li>Bawang Merah: Dipengaruhi biaya produksi.</li>
+            <li>Tomat: Fluktuatif namun cepat panen.</li>
+            <li>Kentang: Relatif stabil.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Insight Utama</h2>
+        <div class="insight-box">
+            <h3>Kesimpulan Data</h3>
+            <p>
+                Cabai merah menunjukkan volatilitas harga tertinggi,
+                sedangkan kentang relatif stabil karena daya simpan lebih lama.
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Tools dan Teknologi</h2>
+        <ul>
+            <li>HTML & CSS</li>
+            <li>JavaScript</li>
+            <li>Chart.js (visualisasi data)</li>
+            <li>Data publik (BPS, Kementerian Pertanian, PIHPS)</li>
+        </ul>
+    </div>
+
+    <!-- REFLEKSI PROYEK (RATA KIRI-KANAN) -->
+    <div class="card refleksi">
+        <h2>Refleksi Proyek</h2>
+        <p>
+            Melalui proyek ini, saya belajar mengolah data harga pangan menggunakan
+            sumber data publik dan menyajikannya dalam bentuk visualisasi grafik
+            untuk mengidentifikasi pola perubahan harga sayuran dari waktu ke waktu.
+        </p>
+        <p>
+            Proyek ini saya kerjakan secara mandiri, sehingga membantu saya memahami
+            keterkaitan antara data, pemrograman, dan permasalahan nyata di bidang
+            pangan dan pertanian.
+        </p>
+        <p>
+            Pengalaman ini menumbuhkan ketertarikan saya terhadap bidang komputasi
+            dan pengolahan data, khususnya dalam penerapannya untuk analisis sektor
+            pertanian di jenjang pendidikan selanjutnya.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Kesimpulan</h2>
+        <p>
+            Proyek ini menunjukkan bagaimana data sederhana dapat dimanfaatkan
+            untuk memahami dinamika sektor pangan di Indonesia.
+        </p>
+        <p>
+            Visualisasi data membantu mengungkap pola tren dan anomali harga
+            yang tidak mudah terlihat melalui pengamatan kasat mata.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 | Analisis Pangan Indonesia | Rayhan
+</footer>
+
+<script>
+    const ctx = document.getElementById('chartSayur').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['2019','2020','2021','2022','2023','2024','2025'],
+            datasets: [
+                { label: 'Cabai Merah', data: [32000,34000,38000,52000,47000,49000,51000], borderWidth: 3, tension: 0.3 },
+                { label: 'Bawang Merah', data: [28000,30000,33000,40000,37000,39000,41000], borderWidth: 3, tension: 0.3 },
+                { label: 'Tomat', data: [10000,11000,13000,16000,14000,15000,15500], borderWidth: 3, tension: 0.3 },
+                { label: 'Kentang', data: [14000,15000,16000,18000,17500,18000,18500], borderWidth: 3, tension: 0.3 }
+            ]
+        },
+        options: { responsive: true }
+    });
+</script>
+
+</body>
+</html>
